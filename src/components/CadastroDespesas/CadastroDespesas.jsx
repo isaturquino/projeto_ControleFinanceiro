@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button'; 
+import React, { useState, useEffect } from 'react';
+import "./CadastroDespesas.css";
+import Button from '@mui/material/Button';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -8,10 +9,17 @@ import dayjs from 'dayjs';
 const CadastroDespesas = ({ tipo, onAddDespesa }) => {
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
-  const [categoria, setCategoria] = useState('Alimentação');
+  const [categoria, setCategoria] = useState('');
   const [data, setData] = useState(dayjs());
 
-  const categorias = ['Alimentação', 'Transporte', 'Lazer', 'Saúde', 'Educação', 'Casa', 'Outros'];
+  const categoriasFixas = ['Aluguel', 'Academia', 'Assinaturas','Condomínio','Internet', 'Plano de Saúde','Seguro'];
+  const categoriasVariaveis = ['Alimentação', 'Transporte', 'Lazer', 'Compras', 'Outros'];
+
+  const categorias = tipo === 'Fixa' ? categoriasFixas : categoriasVariaveis;
+
+  useEffect(() => {
+    setCategoria(categorias[0]);
+  }, [tipo]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,18 +30,18 @@ const CadastroDespesas = ({ tipo, onAddDespesa }) => {
         valor: parseFloat(valor),
         categoria,
         tipo,
-        data: data.format('YYYY-MM-DD'),  
+        data: data.format('YYYY-MM-DD'),
       });
       setDescricao('');
       setValor('');
-      setCategoria('Alimentação');
-      setData(dayjs());  
+      setCategoria(categorias[0]);
+      setData(dayjs());
     }
   };
 
   return (
-    <div>
-      <h3>{tipo}</h3>
+    <div className='CadastroDespesa'>
+      <h3>Adicionar Despesa {tipo}</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Descrição do gasto</label>
@@ -55,6 +63,7 @@ const CadastroDespesas = ({ tipo, onAddDespesa }) => {
           />
         </div>
         <div>
+          <label>Categoria</label>
           <select
             value={categoria}
             onChange={(e) => setCategoria(e.target.value)}

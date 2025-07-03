@@ -1,0 +1,11 @@
+.CadastroDespesa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5%;
+    height: 30vh;
+    max-width: 25vw;
+    margin: 20px;
+    margin-top: 0;
+    background-color: white;
+}

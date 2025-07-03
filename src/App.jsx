@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./App.css"
 import Header from "./components/Header/Header";
 import CadastroDespesas from "./components/CadastroDespesas/CadastroDespesas";
 import ExpenseList from "./components/ListaDespesas";
@@ -40,13 +41,15 @@ export default function App() {
   });
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto", padding: 20 }}>
+    <div className="Container">
       <Header />
-
+       
       <Resumo despesas={despesasFiltradas} />
+      <div className="AreaCadastro">
+        <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
+        <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
+      </div>
 
-      <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
-      <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
 
       <ExpenseFilter
         categoria={filtroCategoria}

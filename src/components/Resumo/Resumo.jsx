@@ -1,4 +1,6 @@
 import React from "react";
+import ResumoItem from "./ResumoItem"; 
+import "./Resumo.css"
 
 export default function Resumo({ despesas }) {
   const totalGeral = despesas.reduce((acc, item) => acc + item.valor, 0);
@@ -9,30 +11,11 @@ export default function Resumo({ despesas }) {
     .filter((d) => d.tipo === "Variável")
     .reduce((acc, item) => acc + item.valor, 0);
 
-  const caixaStyle = {
-    flex: 1,
-    padding: "15px",
-    margin: "0 10px",
-    borderRadius: "8px",
-    backgroundColor: "#e0f7fa",
-    textAlign: "center",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-  };
-
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", margin: "20px 0" }}>
-      <div style={caixaStyle}>
-        <h4>Fixas</h4>
-        <p>R$ {totalFixa.toFixed(2)}</p>
-      </div>
-      <div style={caixaStyle}>
-        <h4>Variáveis</h4>
-        <p>R$ {totalVariavel.toFixed(2)}</p>
-      </div>
-      <div style={caixaStyle}>
-        <h4>Total</h4>
-        <p>R$ {totalGeral.toFixed(2)}</p>
-      </div>
+    <div className="ResumoContainer" >
+      <ResumoItem titulo="Fixas" valor={totalFixa} />
+      <ResumoItem titulo="Variáveis" valor={totalVariavel} />
+      <ResumoItem titulo="Total" valor={totalGeral} />
     </div>
   );
 }
