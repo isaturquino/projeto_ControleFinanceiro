@@ -33,12 +33,24 @@ export default function App() {
     setDespesas((prev) => prev.filter((d) => d.id !== id));
   };
 
-  const despesasFiltradas = despesas.filter((d) => {
-    return (
-      (filtroCategoria ? d.categoria === filtroCategoria : true) &&
-      (filtroTipo ? d.tipo === filtroTipo : true)
-    );
-  });
+const normalizeString = (str) =>
+  str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+const despesasFiltradas = despesas.filter((d) => {
+  const tipoDespesa = normalizeString(d.tipo || "");
+  const filtroTipoNormalized = normalizeString(filtroTipo || "");
+  const categoriaDespesa = normalizeString(d.categoria || "");
+  const filtroCategoriaNormalized = normalizeString(filtroCategoria || "");
+
+  return (
+    (filtroCategoria ? categoriaDespesa === filtroCategoriaNormalized : true) &&
+    (filtroTipo ? tipoDespesa === filtroTipoNormalized : true)
+  );
+});
 
   return (
     <div className="Container">
@@ -50,12 +62,11 @@ export default function App() {
         <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
       </div>
 
-
       <ExpenseFilter
-        categoria={filtroCategoria}
-        tipo={filtroTipo}
-        onCategoriaChange={setFiltroCategoria}
-        onTipoChange={setFiltroTipo}
+        categoriaSelecionada={filtroCategoria}
+        tipoSelecionado={filtroTipo}
+        aoMudarCategoria={setFiltroCategoria}
+        aoMudarTipo={setFiltroTipo}
       />
 
       <ExpenseList

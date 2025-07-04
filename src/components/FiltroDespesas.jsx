@@ -1,4 +1,6 @@
 import React from "react";
+import "./FiltroDespesas.css";
+import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
 const categorias = [
   "Alimentação",
@@ -10,45 +12,43 @@ const categorias = [
   "Outros",
 ];
 
-const tipos = ["fixa", "variavel"];
-
 export default function FiltroDespesas({
-  categoriaSelecionada,
   tipoSelecionado,
+  categoriaSelecionada,
   aoMudarCategoria,
   aoMudarTipo,
 }) {
   return (
-    <div style={{ marginBottom: 20 }}>
-      <label>
-        Categoria:{" "}
-        <select
-          value={categoriaSelecionada}
-          onChange={(e) => aoMudarCategoria(e.target.value)}
-        >
-          <option value="">Todas as Categorias</option>
-          {categorias.map((cat, i) => (
-            <option key={i} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label style={{ marginLeft: 20 }}>
-        Tipo:{" "}
-        <select
+    <div>
+      <FormControl component="fieldset" style={{ marginBottom: 16 }}>
+        <RadioGroup
+          row
+          name="tipo-despesa"
           value={tipoSelecionado}
           onChange={(e) => aoMudarTipo(e.target.value)}
         >
-          <option value="">Todos os Tipos</option>
-          {tipos.map((t, i) => (
-            <option key={i} value={t}>
-              {t === "fixa" ? "Fixa" : "Variável"}
-            </option>
-          ))}
-        </select>
-      </label>
+          <FormControlLabel value="" control={<Radio />} label="Todos" />
+          <FormControlLabel value="fixa" control={<Radio />} label="Fixa" />
+          <FormControlLabel value="variavel" control={<Radio />} label="Variável" />
+        </RadioGroup>
+      </FormControl>
+
+      {tipoSelecionado === "variavel" && (
+        <FormControl>
+          <select
+            id="categoria-select"
+            value={categoriaSelecionada}
+            onChange={(e) => aoMudarCategoria(e.target.value)}
+          >
+            <option value="">Todas as Categorias</option>
+            {categorias.map((cat, i) => (
+              <option key={i} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </FormControl>
+      )}
     </div>
   );
 }

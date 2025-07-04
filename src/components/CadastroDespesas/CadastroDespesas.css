@@ -1,11 +1,105 @@
-.CadastroDespesa{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5%;
-    height: 30vh;
-    max-width: 25vw;
-    margin: 20px;
-    margin-top: 0;
-    background-color: white;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+.CadastroDespesa {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  max-width: 400px;
+  /* Aumentado para acomodar melhor */
+  width: 100%;
+  margin: 16px;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.HeaderCadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #457b9d;
+  color: white;
+  width: 100%;
+  height: 35px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.HeaderCadastro h3 {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.CadastroDespesa form {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.input-row>div {
+  flex: 1;
+}
+
+.SelectRow {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.SelectRow>.MuiFormControl-root,
+.SelectRow>.DatePickerWrapper {
+  flex: 1;
+}
+
+.DatePickerWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.CadastroDespesa label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 1px;
+}
+
+.CadastroDespesa input[type="text"],
+.CadastroDespesa input[type="number"] {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  height: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.CadastroDespesa input:focus {
+  outline: none;
+  border-color: #457b9d;
+}
+
+.ButtonRed {
+  background-color: #e63946 !important;
+  margin-top: 2px !important;
+  padding: 6px 12px !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  border-radius: 4px !important;
+  min-height: 25px !important;
+}
+
+.ButtonRed:hover {
+  background-color: #d62839 !important;
 }
