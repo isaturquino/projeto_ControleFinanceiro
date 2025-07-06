@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import "./ItemDespesa.css";
 
 export default function ItemDespesa({ despesa, aoEditar, aoExcluir }) {
   const [modoEdicao, setModoEdicao] = useState(false);
   const [form, setForm] = useState({ ...despesa });
 
   const handleSalvar = () => {
-    // Pode validar se quiser
     aoEditar(form);
     setModoEdicao(false);
   };
@@ -19,12 +21,6 @@ export default function ItemDespesa({ despesa, aoEditar, aoExcluir }) {
 
   return (
     <li
-      style={{
-        border: "1px solid #ccc",
-        borderRadius: 8,
-        padding: 10,
-        marginBottom: 10,
-      }}
     >
       {modoEdicao ? (
         <>
@@ -85,9 +81,9 @@ export default function ItemDespesa({ despesa, aoEditar, aoExcluir }) {
           <button onClick={() => setModoEdicao(true)} style={{ marginRight: 8 }}>
             Editar
           </button>
-          <button onClick={aoExcluir} style={{ color: "red" }}>
-            Excluir
-          </button>
+          <IconButton aria-label="delete" onClick={aoExcluir} color="error">
+            <DeleteIcon />
+          </IconButton>
         </>
       )}
     </li>

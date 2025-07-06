@@ -2,7 +2,7 @@
   padding: 20px;
   max-width: 1100px;
   margin: 0 auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
 
@@ -16,16 +16,16 @@
 
 .ResumoGraficosTotal {
   display: flex;
-  justify-content: center; /* centraliza os gráficos */
-  gap: 40px; /* espaço entre os gráficos */
-  flex-wrap: wrap; /* permite quebra de linha em telas pequenas */
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .Grafico {
-  flex: 1 1 300px; /* mínimo 300px, cresce conforme espaço */
-  max-width: 320px; /* limite máximo de largura */
+  flex: 1 1 300px;
+  max-width: 20rem;
   background: #fff;
-  padding: 25px;
+  padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
   text-align: center;
@@ -34,13 +34,66 @@
   align-items: center;
 }
 
-.Grafico h4 {
+.Grafico h3 {
   margin-bottom: 15px;
   font-weight: 600;
   color: #444;
 }
 
-/* Responsivo - telas menores que 768px */
+.legenda-scroll-container {
+  width: 100%;
+  max-width: 280px;
+  margin-top: 15px;
+}
+
+.legenda-scroll-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 5px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f1f1f1;
+}
+
+.legenda-scroll-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.legenda-scroll-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.legenda-scroll-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.legenda-scroll-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  gap: 6px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.legenda-cor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .ResumoTotais {
     flex-direction: column;
@@ -54,5 +107,17 @@
 
   .Grafico {
     max-width: 100%;
+  }
+
+  .legenda-scroll-container {
+    max-width: 250px;
+  }
+
+  .legenda-scroll-content {
+    gap: 12px;
+  }
+
+  .legenda-texto {
+    font-size: 12px;
   }
 }

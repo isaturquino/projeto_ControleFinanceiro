@@ -1,16 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-.Header {
-    width: 100vw;
-    height: 12vh;
-    background-color: #1D3557;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    color: white;
-}
-.Header h1{
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 500;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Header {
+  width: 100vw;
+  height: 12vh;
+  background-color: #1d3557;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+}
+
+.Ancoras {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+}
+
+a {
+  display: flex;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+
+.Header a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.Header h1 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .Header {
+    padding: 0 15px;
+  }
+
+  .Ancoras {
+    gap: 15px;
+  }
+
+  a {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+  }
+
+  .Header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Ancoras {
+    gap: 10px;
+  }
+
+  a {
+    font-size: 0.8rem !important;
+    padding: 4px 8px !important;
+  }
+
+  .Header h1 {
+    font-size: 1rem;
+  }
 }

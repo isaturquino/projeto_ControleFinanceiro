@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import CadastroDespesas from "./components/CadastroDespesas/CadastroDespesas";
-import ExpenseList from "./components/ListaDespesas";
+import ExpenseList from "./components/ListaDespesas/ListaDespesas";
 import ExpenseFilter from "./components/FiltroDespesas";
 import Resumo from "./components/Resumo/Resumo";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -71,7 +71,7 @@ export default function App() {
       </button>
       <Resumo despesas={despesasFiltradas} />
 
-      <div className="AreaCadastro">
+      <div className="AreaCadastro" id="cadastro">
         <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
         <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
       </div>
@@ -82,12 +82,13 @@ export default function App() {
         aoMudarCategoria={setFiltroCategoria}
         aoMudarTipo={setFiltroTipo}
       />
-
-      <ExpenseList
+      <div id="lista">
+      <ExpenseList 
         despesas={despesasFiltradas}
         aoEditar={editarDespesa}
         aoExcluir={excluirDespesa}
       />
+      </div>
     </div>
   );
 }
