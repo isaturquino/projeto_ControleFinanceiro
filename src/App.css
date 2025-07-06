@@ -2,20 +2,16 @@
 
 :root {
   --bg-color: #f2fef2;
-  --text-color: #000;
-  --card-bg: #fff;
-  --header-bg: #1f3554;
+  --text-color: black;
   --button-bg: #e63946;
-  --button-text: #fff;
+  --button-text: white;
 }
 
 [data-theme='dark'] {
-  --bg-color: #1e1e1e;
-  --text-color: #fff;
-  --card-bg: #2a2a2a;
-  --header-bg: #121212;
-  --button-bg: #f1c40f;
-  --button-text: #000;
+  --bg-color: #0d1321;
+  --text-color: white;
+  --button-bg:  #e63946;
+  --button-text: white;
 }
 
 body {

@@ -16,7 +16,7 @@ const CadastroDespesas = ({ tipo, onAddDespesa }) => {
   const [data, setData] = useState(dayjs());
 
   const categoriasFixas = ['Aluguel', 'Academia', 'Assinaturas', 'Condomínio', 'Internet', 'Plano de Saúde', 'Seguro'];
-  const categoriasVariaveis = ['Alimentação', 'Transporte', 'Lazer', 'Compras', 'Outros'];
+  const categoriasVariaveis = ['Alimentação','Compras','Educação','Lazer','Moradia','Saúde','Transporte', 'Outros'];
 
   const categorias = tipo === 'Fixa' ? categoriasFixas : categoriasVariaveis;
 

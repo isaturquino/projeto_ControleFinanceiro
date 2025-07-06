@@ -4,9 +4,8 @@
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  max-width: 400px;
-  /* Aumentado para acomodar melhor */
-  width: 100%;
+  height: 260px;
+  width: 300px;
   margin: 16px;
   padding: 0;
   background-color: white;
@@ -18,11 +17,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin-bottom: 10px;
   background-color: #457b9d;
   color: white;
   width: 100%;
-  height: 35px;
+  height: 2.8rem;
   padding: 0 16px;
   box-sizing: border-box;
 }
@@ -36,15 +35,16 @@
 
 .CadastroDespesa form {
   padding: 12px;
+  margin-bottom: .9375rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .input-row {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 10px;
 }
 
 .input-row>div {
@@ -71,7 +71,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: #374151;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
 }
 
 .CadastroDespesa input[type="text"],
@@ -92,12 +92,12 @@
 
 .ButtonRed {
   background-color: #e63946 !important;
-  margin-top: 2px !important;
+  margin-top: 10px !important;
   padding: 6px 12px !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
   border-radius: 4px !important;
-  min-height: 25px !important;
+  min-height: 40px !important;
 }
 
 .ButtonRed:hover {

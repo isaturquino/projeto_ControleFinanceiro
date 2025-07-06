@@ -48,36 +48,49 @@ a {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+
+ @media (max-width: 768px) {
   .Header {
-    padding: 0 15px;
+    flex-direction: row;
+    height: auto;
+    padding: 10px;
+    text-align: center;
   }
 
   .Ancoras {
+    justify-content: center;
     gap: 15px;
   }
 
   a {
-    font-size: 0.85rem !important;
-    padding: 6px 12px !important;
+    font-size: 0.85rem;
+    padding: 5px 10px;
   }
 
   .Header h1 {
     font-size: 1.2rem;
+    margin: 5px 0;
   }
 }
 
+
 @media (max-width: 480px) {
+  .Header {
+    padding: 10px;
+  }
+
   .Ancoras {
     gap: 10px;
+    flex-direction: column;
+    align-items: center;
   }
 
   a {
-    font-size: 0.8rem !important;
-    padding: 4px 8px !important;
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
 
   .Header h1 {
     font-size: 1rem;
   }
-}
+} 

@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import CadastroDespesas from "./components/CadastroDespesas/CadastroDespesas";
 import ExpenseList from "./components/ListaDespesas/ListaDespesas";
-import ExpenseFilter from "./components/FiltroDespesas";
+import ExpenseFilter from "./components/FiltroDespesas/FiltroDespesas";
 import Resumo from "./components/Resumo/Resumo";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -69,7 +69,7 @@ export default function App() {
       <button className="theme-toggle" onClick={toggleTheme} title="Alternar tema">
         {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
       </button>
-      <Resumo despesas={despesasFiltradas} />
+      <Resumo despesas={despesas} />
 
       <div className="AreaCadastro" id="cadastro">
         <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
