@@ -5,10 +5,13 @@ import CadastroDespesas from "./components/CadastroDespesas/CadastroDespesas";
 import ExpenseList from "./components/ListaDespesas/ListaDespesas";
 import ExpenseFilter from "./components/FiltroDespesas/FiltroDespesas";
 import Resumo from "./components/Resumo/Resumo";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Login from "./components/Login/Login";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 export default function App() {
+  const [logado, setLogado] = useState(() => localStorage.getItem("logado") === "true");
+  const [usuario, setUsuario] = useState(() => localStorage.getItem("usuario") || "");
   const [despesas, setDespesas] = useState(() => {
     const despesasSalvas = localStorage.getItem("despesas");
     return despesasSalvas ? JSON.parse(despesasSalvas) : [];
@@ -30,6 +33,20 @@ export default function App() {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  const handleLogin = (email) => {
+    setLogado(true);
+    setUsuario(email);
+    localStorage.setItem("logado", "true");
+    localStorage.setItem("usuario", email);
+  };
+
+  const handleLogout = () => {
+    setLogado(false);
+    setUsuario("");
+    localStorage.removeItem("logado");
+    localStorage.removeItem("usuario");
+  };
+
   const adicionarDespesa = (novaDespesa) => {
     setDespesas((prev) => [...prev, novaDespesa]);
   };
@@ -45,11 +62,7 @@ export default function App() {
   };
 
   const normalizeString = (str) =>
-    str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
+    str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 
   const despesasFiltradas = despesas.filter((d) => {
     const tipoDespesa = normalizeString(d.tipo || "");
@@ -63,19 +76,19 @@ export default function App() {
     );
   });
 
+  if (!logado) return <Login onLogin={handleLogin} />;
+
   return (
     <div className="Container">
-      <Header />
+      <Header usuario={usuario} onLogout={handleLogout} />
       <button className="theme-toggle" onClick={toggleTheme} title="Alternar tema">
-        {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+        {theme === "light" ? <Brightness4Icon /> : <Brightness7Icon />}
       </button>
       <Resumo despesas={despesas} />
-
       <div className="AreaCadastro" id="cadastro">
         <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
         <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
       </div>
-
       <ExpenseFilter
         categoriaSelecionada={filtroCategoria}
         tipoSelecionado={filtroTipo}
@@ -83,11 +96,11 @@ export default function App() {
         aoMudarTipo={setFiltroTipo}
       />
       <div id="lista">
-      <ExpenseList 
-        despesas={despesasFiltradas}
-        aoEditar={editarDespesa}
-        aoExcluir={excluirDespesa}
-      />
+        <ExpenseList
+          despesas={despesasFiltradas}
+          aoEditar={editarDespesa}
+          aoExcluir={excluirDespesa}
+        />
       </div>
     </div>
   );
