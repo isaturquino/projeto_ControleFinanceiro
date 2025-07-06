@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./login.css";
+import PersonIcon from "@mui/icons-material/Person";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
 
 export default function Login({ onLogin }) {
-  const [tela, setTela] = useState("login"); // login | cadastro | esqueceu
+  const [tela, setTela] = useState("login");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
@@ -54,32 +57,48 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     const usuario = usuarios.find((u) => u.email === email);
     if (usuario) {
-      alert(`Senha do usuário: ${usuario.senha}`); // Apenas para fins didáticos
+      alert(`Senha do usuário: ${usuario.senha}`);
     } else {
       alert("Usuário não encontrado.");
     }
   };
 
+  const IconWrapper = ({ children }) => (
+    <div className="input-icon">{children}</div>
+  );
+
   return (
     <div className="login-container">
       {tela === "login" && (
         <form className="login-form" onSubmit={handleLogin}>
+          <div className="profile-icon">
+            <PersonIcon fontSize="large" />
+          </div>
           <h2>Entrar</h2>
-          <input
-            type="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            required
-          />
-          <button type="submit">Entrar</button>
+
+          <div className="input-group">
+            <IconWrapper><EmailIcon /></IconWrapper>
+            <input
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <IconWrapper><LockIcon /></IconWrapper>
+            <input
+              type="password"
+              placeholder="Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit">LOGIN</button>
           <p className="link" onClick={() => setTela("cadastro")}>Criar conta</p>
           <p className="link" onClick={() => setTela("esqueceu")}>Esqueceu a senha?</p>
         </form>
@@ -87,28 +106,44 @@ export default function Login({ onLogin }) {
 
       {tela === "cadastro" && (
         <form className="login-form" onSubmit={handleCadastro}>
+          <div className="profile-icon">
+            <PersonIcon fontSize="large" />
+          </div>
           <h2>Criar Conta</h2>
-          <input
-            type="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Confirmar senha"
-            value={confirmarSenha}
-            onChange={(e) => setConfirmarSenha(e.target.value)}
-            required
-          />
+
+          <div className="input-group">
+            <IconWrapper><EmailIcon /></IconWrapper>
+            <input
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <IconWrapper><LockIcon /></IconWrapper>
+            <input
+              type="password"
+              placeholder="Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <IconWrapper><LockIcon /></IconWrapper>
+            <input
+              type="password"
+              placeholder="Confirmar senha"
+              value={confirmarSenha}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
+              required
+            />
+          </div>
+
           <button type="submit">Cadastrar</button>
           <p className="link" onClick={() => setTela("login")}>Já tem conta? Entrar</p>
         </form>
@@ -116,14 +151,22 @@ export default function Login({ onLogin }) {
 
       {tela === "esqueceu" && (
         <form className="login-form" onSubmit={handleEsqueceuSenha}>
+          <div className="profile-icon">
+            <PersonIcon fontSize="large" />
+          </div>
           <h2>Recuperar Senha</h2>
-          <input
-            type="email"
-            placeholder="Digite seu e-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+
+          <div className="input-group">
+            <IconWrapper><EmailIcon /></IconWrapper>
+            <input
+              type="email"
+              placeholder="Digite seu e-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
           <button type="submit">Recuperar</button>
           <p className="link" onClick={() => setTela("login")}>Voltar ao login</p>
         </form>

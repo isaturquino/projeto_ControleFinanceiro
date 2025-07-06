@@ -1,3 +1,4 @@
+/* Header.css */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 * {
@@ -16,6 +17,7 @@
   justify-content: space-between;
   padding: 0 20px;
   color: white;
+  position: relative;
 }
 
 .Ancoras {
@@ -26,7 +28,7 @@
   padding: 8px;
 }
 
-a {
+a.HeaderLink {
   display: flex;
   color: white;
   font-family: "Ubuntu", sans-serif;
@@ -35,8 +37,8 @@ a {
   background-color: transparent;
 }
 
-.Header a:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+.Header a.HeaderLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .Header h1 {
@@ -47,9 +49,37 @@ a {
   transform: translateX(-50%);
 }
 
+.HeaderDireita {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.UsuarioEmail {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+}
+
+.LogoutButton {
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.LogoutButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Responsivo */
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   .Header {
     flex-direction: row;
     height: auto;
@@ -62,7 +92,8 @@ a {
     gap: 15px;
   }
 
-  a {
+  a.HeaderLink,
+  .LogoutButton {
     font-size: 0.85rem;
     padding: 5px 10px;
   }
@@ -72,7 +103,6 @@ a {
     margin: 5px 0;
   }
 }
-
 
 @media (max-width: 480px) {
   .Header {
@@ -85,7 +115,8 @@ a {
     align-items: center;
   }
 
-  a {
+  a.HeaderLink,
+  .LogoutButton {
     font-size: 0.75rem;
     padding: 4px 8px;
   }
@@ -93,4 +124,4 @@ a {
   .Header h1 {
     font-size: 1rem;
   }
-} 
+}

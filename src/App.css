@@ -61,7 +61,7 @@ body {
 
 .theme-toggle {
   position: fixed; 
-  top: 1rem;
+  bottom: 1rem;   /* mudou de top para bottom */
   right: 1rem;
   background: var(--button-bg);
   color: var(--button-text);
@@ -79,3 +79,4 @@ body {
 .theme-toggle:hover {
   opacity: 0.9;
 }
+

@@ -3,46 +3,86 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f1f1f1;
+  background: linear-gradient(135deg, #420c52, #97d9e1);
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .login-form {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
   padding: 2rem;
-  border-radius: 8px;
-  width: 320px;
+  border-radius: 20px;
+  width: 340px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+
+.profile-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ffffff33;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .login-form h2 {
-  text-align: center;
   margin-bottom: 1rem;
 }
 
-.login-form input {
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
   padding: 0.75rem;
+  background: transparent;
+  border: none;
+  color: white;
   font-size: 1rem;
+}
+
+.input-group input::placeholder {
+  color: #ddd;
+}
+
+.input-icon {
+  margin-right: 0.5rem;
+  color: white;
 }
 
 .login-form button {
   padding: 0.75rem;
-  background-color: #0077cc;
+  background-color: #ffffff33;
   color: white;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s;
 }
 
 .login-form button:hover {
-  background-color: #005fa3;
+  background-color: #ffffff55;
 }
 
 .link {
   text-align: center;
-  color: #0077cc;
+  color: white;
   cursor: pointer;
   font-size: 0.9rem;
   text-decoration: underline;
