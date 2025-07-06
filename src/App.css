@@ -35,4 +35,62 @@ body {
     max-width: 90%;
   }
 }
+:root {
+  --bg-color: #f2fef2;
+  --text-color: #000;
+  --card-bg: #fff;
+  --header-bg: #1f3554;
+  --button-bg: #e63946;
+  --button-text: #fff;
+}
 
+[data-theme='dark'] {
+  --bg-color: #1e1e1e;
+  --text-color: #fff;
+  --card-bg: #2a2a2a;
+  --header-bg: #121212;
+  --button-bg: #f1c40f;
+  --button-text: #000;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+.Container {
+  padding: 1rem;
+}
+
+.AreaCadastro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.AreaCadastro > * {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.theme-toggle {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.9;
+}

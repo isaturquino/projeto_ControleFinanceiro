@@ -5,8 +5,8 @@ import CadastroDespesas from "./components/CadastroDespesas/CadastroDespesas";
 import ExpenseList from "./components/ListaDespesas";
 import ExpenseFilter from "./components/FiltroDespesas";
 import Resumo from "./components/Resumo/Resumo";
-import Cambio from "./Cambio"; // ajuste o caminho se necessário
-
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 export default function App() {
   const [despesas, setDespesas] = useState(() => {
@@ -16,10 +16,19 @@ export default function App() {
 
   const [filtroCategoria, setFiltroCategoria] = useState("");
   const [filtroTipo, setFiltroTipo] = useState("");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     localStorage.setItem("despesas", JSON.stringify(despesas));
   }, [despesas]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   const adicionarDespesa = (novaDespesa) => {
     setDespesas((prev) => [...prev, novaDespesa]);
@@ -57,8 +66,11 @@ export default function App() {
   return (
     <div className="Container">
       <Header />
+      <button className="theme-toggle" onClick={toggleTheme} title="Alternar tema">
+        {theme === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+      </button>
       <Resumo despesas={despesasFiltradas} />
-      
+
       <div className="AreaCadastro">
         <CadastroDespesas tipo="Fixa" onAddDespesa={adicionarDespesa} />
         <CadastroDespesas tipo="Variável" onAddDespesa={adicionarDespesa} />
