@@ -82,7 +82,6 @@ Ferramentas utilizadas no planejamento e prototipagem do projeto:
 
 ---
 
-## 📄 [Relatório do Projeto](relatorio.md)
 
 ---
 
