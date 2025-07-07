@@ -21,7 +21,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web 2**, minis
 - 🧮 **Resumo automático** dos totais por tipo e categoria  
 - 💾 **Persistência local dos dados** usando `localStorage`  
 - 🎛️ **Filtros por categoria e tipo**  
-- 📈 Visualização gráfica dos gastos (barras, pizza, linhas)
+- 📈 Visualização gráfica dos gastos 
 
 ---
 
@@ -44,7 +44,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web 2**, minis
 Ferramentas utilizadas no planejamento e prototipagem do projeto:
 
 [![Notion](https://img.shields.io/badge/-Notion-%23000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so)  
-[![Excalidraw](https://img.shields.io/badge/-Excalidraw-%231E1E1E?style=for-the-badge&logo=excalidraw&logoColor=white)](https://excalidraw.com)
+[![Excalidraw](https://img.shields.io/badge/-Excalidraw-%231E1E1E?style=for-the-badge&logo=excalidraw&logoColor=white)](https://excalidraw.com/)
 
 ---
 
