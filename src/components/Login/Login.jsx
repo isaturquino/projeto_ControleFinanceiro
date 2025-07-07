@@ -83,7 +83,7 @@ export default function Login({ onLogin }) {
     // Busca o usuário pelo e-mail
     const usuario = usuarios.find((u) => u.email === email);
     if (usuario) {
-      alert(`Senha do usuário: ${usuario.senha}`); // ⚠️ Mostrar senha diretamente não é seguro
+      alert(`Senha do usuário: ${usuario.senha}`); // Mostrar senha diretamente não é seguro
     } else {
       alert("Usuário não encontrado.");
     }
