@@ -39,12 +39,9 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web 2**, minis
 
 ---
 
-## 🧠 Planejamento
+## 🧠 Planejamento/Excalidraw
 
-Ferramentas utilizadas no planejamento e prototipagem do projeto:
-
-[![Notion](https://img.shields.io/badge/-Notion-%23000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so)  
-[![Excalidraw](https://img.shields.io/badge/-Excalidraw-%231E1E1E?style=for-the-badge&logo=excalidraw&logoColor=white)](https://excalidraw.com/)
+[![Excalidraw](https://excalidraw.com/#json=4SBV27lnyxN2DHGPe6bf9,TP-ynBx0IuXfqQd_EIT40Q)](https://excalidraw.com/)
 
 ---
 
