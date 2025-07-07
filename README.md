@@ -50,9 +50,8 @@ Ferramentas utilizadas no planejamento e prototipagem do projeto:
 
 ## 📊 Gráficos do Projeto
 
-- 📍 **Gráfico de Barras** – Exibe os tipos de despesa com maiores gastos  
 - 🥧 **Gráfico de Pizza** – Distribuição das despesas por categoria em um mês  
-- 📈 **Gráfico de Linhas** – Evolução dos gastos ao longo do tempo
+  
 
 ---
 
