@@ -61,7 +61,7 @@ body {
 
 .theme-toggle {
   position: fixed; 
-  bottom: 1rem;   /* mudou de top para bottom */
+  bottom: 1rem;  
   right: 1rem;
   background: var(--button-bg);
   color: var(--button-text);
@@ -73,10 +73,9 @@ body {
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .theme-toggle:hover {
   opacity: 0.9;
 }
-

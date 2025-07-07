@@ -1,3 +1,4 @@
+/* Container principal que centraliza a tela */
 .login-container {
   display: flex;
   justify-content: center;
@@ -7,21 +8,23 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* Formulário com fundo translúcido e bordas arredondadas */
 .login-form {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1); /* fundo semi-transparente */
+  backdrop-filter: blur(12px); /* efeito de desfoque atrás */
   padding: 2rem;
   border-radius: 20px;
   width: 340px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3); /* sombra suave */
   color: #fff;
   position: relative;
   text-align: center;
 }
 
+/* Ícone de perfil no topo */
 .profile-icon {
   width: 64px;
   height: 64px;
@@ -34,10 +37,12 @@
   color: white;
 }
 
+/* Título do formulário */
 .login-form h2 {
   margin-bottom: 1rem;
 }
 
+/* Grupo de input com ícone à esquerda */
 .input-group {
   display: flex;
   align-items: center;
@@ -46,6 +51,7 @@
   padding: 0 0.5rem;
 }
 
+/* Campo de texto */
 .input-group input {
   flex: 1;
   padding: 0.75rem;
@@ -55,15 +61,18 @@
   font-size: 1rem;
 }
 
+/* Cor do texto do placeholder */
 .input-group input::placeholder {
   color: #ddd;
 }
 
+/* Ícone do input (email, senha, etc.) */
 .input-icon {
   margin-right: 0.5rem;
   color: white;
 }
 
+/* Botão de ação (login, cadastrar, recuperar) */
 .login-form button {
   padding: 0.75rem;
   background-color: #ffffff33;
@@ -76,14 +85,67 @@
   transition: background 0.3s;
 }
 
+/* Hover no botão */
 .login-form button:hover {
   background-color: #ffffff55;
 }
 
+/* Links clicáveis para mudar de tela */
 .link {
   text-align: center;
   color: white;
   cursor: pointer;
   font-size: 0.9rem;
   text-decoration: underline;
+}
+
+/* Ícone de mostrar/ocultar senha */
+.input-group span {
+  color: white;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Quando o campo de input estiver focado, destaca com uma sombra */
+.input-group input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff55;
+  transition: box-shadow 0.2s;
+}
+
+/* Torna a interface mais suave nas animações em geral */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Responsividade: ajusta largura em telas pequenas */
+@media (max-width: 400px) {
+  .login-form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+/* Exemplo de tema claro (pode ser aplicado com JavaScript) */
+body.light .login-container {
+  background: linear-gradient(135deg, #e4e4e4, #ffffff);
+}
+
+body.light .login-form {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+body.light .input-group input {
+  color: #000;
+}
+
+body.light .input-group input::placeholder {
+  color: #444;
+}
+
+body.light .input-icon {
+  color: #000;
 }
