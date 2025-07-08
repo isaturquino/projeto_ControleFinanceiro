@@ -41,7 +41,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web 2**, minis
 
 ## 🧠 Planejamento/Excalidraw
 
-[![Excalidraw](https://excalidraw.com/#json=4SBV27lnyxN2DHGPe6bf9,TP-ynBx0IuXfqQd_EIT40Q)](https://excalidraw.com/)
+[![Excalidraw](https://excalidraw.com/#json=4SBV27lnyxN2DHGPe6bf9,TP-ynBx0IuXfqQd_EIT40Q)]
 
 ---
 
